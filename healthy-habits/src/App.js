@@ -17,9 +17,8 @@ function App() {
 
     // TODO: Inside each of the following handlers, update the numbers property from state.
     const handleUpdateSteps = (amount) => {
-        // Use the spread operator to make a copy of the current numbers object
-
-        // Set the new value into the state variable, using the spread operator again to include the other key/value pairs from the copy you just made.
+        // You have two options here: use prevState OR make a copy of the object using the spread operator and then use that copy to set the new values.
+        
 
     };
     const handleUpdateWater = (amount) => {

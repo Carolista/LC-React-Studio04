@@ -10,7 +10,7 @@ const Chart = (props) => {
     return (
         <React.Fragment>
             <div className="circle">
-                <div>1530</div>
+                <div className="net-number cell-number">1530</div>
                 <div className="cell-category">
                     calories<br /> (net)
                 </div>
