@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "../App.css";
 
 const Chart = (props) => {
-
-    // State variable to store the net calories - won't update until triggered during animations
-    const [netCal, setNetCal] = useState(props.numbers.net);
-
-    // This is a boolean that controls animation of the net calories
-    const [animateNet, setAnimateNet] = useState(false);
-
-    // This listens for props.numbers.net to change and then triggers the animations
-    useEffect(() => {
-        if (props.numbers.net !== 0) {
-        setAnimateNet(true);
-        setTimeout(() => {
-            setNetCal(props.numbers.net);
-            setAnimateNet(false);
-        }, 400); // delay to allow blur animation to complete
-        }
-    }, [props.numbers.net]);
 
     // TODO: Replace the hard-coded example numbers below with props coming from the parent, App
 
@@ -27,12 +10,8 @@ const Chart = (props) => {
     return (
         <React.Fragment>
             <div className="circle">
-                <div
-                    className={`cell-number net-number ${
-                        animateNet ? "blur" : "clarify"
-                    }`}
-                >
-                    {netCal}
+                <div className="cell-number net-number">
+                    {props.numbers.net}
                 </div>
                 <div className="cell-category">
                     calories<br /> (net)
