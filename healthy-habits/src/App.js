@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Chart from "./components/chart.js";
 import Details from "./components/details.js";
 import "./App.css";
@@ -6,56 +6,39 @@ import "./App.css";
 function App() {
 
     // TODO: Create a state variable to track which tab should be displayed.
-    const [currType, setCurrType] = useState("net");
+    // Initialize it to the string "net".
+    // Don't forget to import the hook you need.
+
 
     // TODO: Create a state variable to hold the five numbers to track.
     // This should be an object with five properties: steps, water, food, exercise, and net.
     // They should all start with a zero value.
-    const [numbers, setNumbers] = useState({
-        steps: 0,
-        water: 0,
-        food: 0,
-        exercise: 0,
-        net: 0,
-    });
+
 
     // TODO: Inside each of the following handlers, update the numbers property from state.
-    // Within the food and exercise handlers, you will need to update the net cal as well.
-    // Strategy: make a copy and use those values to update the object in state.
     const handleUpdateSteps = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            steps: amount,
-        });
+        // Use the spread operator to make a copy of the current numbers object
+
+        // Set the new value into the state variable, using the spread operator again to include the other key/value pairs from the copy you just made.
+
     };
     const handleUpdateWater = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            water: amount,
-        });
+        // Same
+
     };
     const handleUpdateFood = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            food: prevNumbers.food + amount,
-            net: prevNumbers.net + amount,
-        });
+        // Same, but update the net cal as well (add calories consumed).
+
     };
     const handleUpdateExercise = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            exercise: prevNumbers.exercise + amount,
-            net: prevNumbers.net - amount,
-        });
+        // Same, but update the net cal as well (subtract calories burned).
+
     };
 
+    // TODO: Change the current type of details to be displayed.
     const handleCurrTypeChange = (type) => {
-        // TODO: Use the setter to change the current type of details to be displayed
-        setCurrType(type);
+        // Use the setter from state.
+
     };
 
     // JSX to display all content on page
@@ -67,7 +50,7 @@ function App() {
             </header>
 
             {/* TODO: Pass the numbers object into the Chart component as a prop */}
-            <Chart numbers={numbers} />
+            <Chart />
 
             <div className="tabs-container">
                 <div
@@ -108,13 +91,7 @@ function App() {
             
             {/* TODO: Pass the current type into the Details component */}
             {/* TODO: Pass the four handler functions to the Details component */}
-            <Details
-                type={currType}
-                updateSteps={handleUpdateSteps}
-                updateWater={handleUpdateWater}
-                updateFood={handleUpdateFood}
-                updateExercise={handleUpdateExercise}
-            />
+            <Details />
             
         </div>
     );
