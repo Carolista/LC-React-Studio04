@@ -85,7 +85,7 @@ There are multiple aspects to this and we'll take them one by one.
  - [ ] Look at the `<button>` components for the food and exercise details. You need to add `onClick` events here and set them equal to their respective click handlers above.
 
 ### D. Finish the event handlers for the steps and water values in the Details component.
-If you look at the change and click handlers just below your state variables, you'll notice they each automatically receive an event object, which we are calling `e`. In the DOM you can get the value by accessing `event.target.value`, and these have already been stored in a local variable for you.
+If you look at the change and click handlers just below your state variables, you'll notice they each automatically receive an event object, which we are calling `e`. In the DOM you can get the value by accessing `event.target.value`, and these have already been stored in a local variable for you (and converted to number types).
 You'll see there are a few `TODO`s that need to be completed. Let's start with the handler for steps since it's pretty simple.
  - [ ] Use the setter to update your state variable with the new amount coming from the `onChange` event. This will ensure that next time your user returns to the steps form it will already have the most current value displayed in the input field.
  - [ ] Now call `props.updateSteps` (see the list in the propTypes object at the very bottom?) and pass in the `amount`. This is how we'll get it up to the parent component.
@@ -95,20 +95,30 @@ You'll see there are a few `TODO`s that need to be completed. Let's start with t
 
 ### E. Finish the event handlers for the food and exercise values in the Details component.
 Because there are two input fields for each of these categories, we need to make use of an object instead of just a single string. Let's start with the handler for food.
- - [ ] Use setters to update your food description and calories state variables with the new amounts coming from the `onChange` events. This will ensure that next time your user returns to the food form it will already have the most current values displayed in the input fields.
+ - [ ] Use setters to update your food description and calories state variables with the new data coming from the `onChange` events. This will ensure that next time your user returns to the food form it will already have the most current values displayed in the input fields.
  - [ ] In the third function, `handleSubmitFood`, add two more properties just after the `id` property and call them `desc` and `cal`. Set them equal to the values currently stored in state above.
  - [ ] Skip the `TODO` about the list for now.
  - [ ] Now call `props.updateFood` and pass in just the calories.
  - [ ] Use your setters to reset the values of the inputs for description and calories back to empty strings.
  - [ ] Go over to `App` and look at where the `<Details />` component is placed in the JSX. You need to add an attribute matching the prop name you were just referencing in `Details`. Set it equal to the update handler function for steps toward the top of `App`. 
- - [ ] Now go up to that function and use your setter for `numbers` to udpate both the food and net cal values in state. Make sure to use `prevState` to assure you're adding new values to existing values.
- - [ ] That's it! Save your changes and go test it out in the browser. You should see both your food and net calories updating in the chart after you enter and submit them.
+ - [ ] Now go up to that function and use your setter for `numbers` to update both the food and net cal values in state. Make sure to use `prevState` to ensure you're adding new values to existing values.
+ - [ ] That's it! Save your changes and go test it out in the browser. You should see both your food and net calories update in the chart after you enter and submit them.
  - [ ] Repeat this same sequence for the exercise values.
 
 ---
 
 ## Part 4 - Displaying Lists of Food & Exercise
-*Coming soon!*
+
+### A. Create state variables to hold lists of food and exercise entries.
+ - [ ] At the top of the `Details` component, look at the second `TODO`. Create two state variables to hold the lists of food and exercise objects (each object having `id`, `desc`, and `cal` properties). Initialize them as empty arrays.
+
+### B. Add setters to your submit handlers to update these new state variables.
+ - [ ] In the `handleSubmitFood` and `handleSubmitExercise` functions, go back and look at those `TODO`s you skipped earlier. For each one, use `prevState` to to add the new entry object you just created in the previous step to the corresponding list state variable. *Hint: with the spread operator and some brackets, you can set a new array with all previous values and the new value together*
+
+### C. Place DetailsTable components into the food and exercise sections.
+ - [ ] Go to the middle of the file, just between the handlers and the JSX. You'll see a helper component called `DetailsTable`. This accepts a single parameter, `params`, which functions the same way that `props` does for the main component. We just can't use that variable twice since `DetailsTable` is nested inside `Details`. This will accept a list (either food entries or exercise entries) and generate the JSX needed to display each table.
+ - [ ] Now go to the very last `TODO` in each of the food and exercise sections in the JSX. Add an instance of the `<DetailsTable />` component to each section, then create an attribute called `list` and set it equal to the list state variable you created for that section. If you go back to the `DetailsTable` function you see that `list` is accessed through `params` as `params.list`, just as other attributes are accessed through `props` on primary components.
+ - [ ] Save your work and head over to the browser (refresh if necessary). Add some food and exercise entries, and watch the information being added to the tables on each tab!
 
 ---
 
