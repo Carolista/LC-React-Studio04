@@ -93,6 +93,8 @@ You'll see there are a few `TODO`s that need to be completed. Let's start with t
  - [ ] That's it! Save your changes and go test it out in the browser. You should see your steps updating in the chart as you enter them into the form below.
  - [ ] Repeat this same sequence for the water value.
 
+<p align="center"><img width="600" alt="Screen Shot 2021-08-04 at 6 19 40 PM" src="https://user-images.githubusercontent.com/55961845/128267699-3093927b-5cab-49d9-935b-e4b7abf94414.png"></p>
+
 ### E. Finish the event handlers for the food and exercise values in the Details component.
 Because there are two input fields for each of these categories, we need to make use of an object instead of just a single string. Let's start with the handler for food.
  - [ ] Use setters to update your food description and calories state variables with the new data coming from the `onChange` events. This will ensure that next time your user returns to the food form it will already have the most current values displayed in the input fields.
@@ -120,8 +122,31 @@ Because there are two input fields for each of these categories, we need to make
  - [ ] Now go to the very last `TODO` in each of the food and exercise sections in the JSX. Add an instance of the `<DetailsTable />` component to each section, then create an attribute called `list` and set it equal to the list state variable you created for that section. If you go back to the `DetailsTable` function you see that `list` is accessed through `params` as `params.list`, just as other attributes are accessed through `props` on primary components.
  - [ ] Save your work and head over to the browser (refresh if necessary). Add some food and exercise entries, and watch the information being added to the tables on each tab!
 
+<p align="center"><img width="600" alt="Screen Shot 2021-08-04 at 6 15 38 PM" src="https://user-images.githubusercontent.com/55961845/128267442-47b6d829-f44a-4e48-a6a7-43a4f5e8cbfc.png"></p>
+
 ---
 
 ## Bonus Missions
-*Coming soon!*
+
+### A. Disable button if description or calories field is empty.
+In the `Details` component, both the food and exercise tabs have submission buttons.
+ - [ ] Remember that the `disabled` attribute exists in the browser for `<button>` elements.
+ - [ ] Come up with a way to disable each button if one or both input fields are empty. 
+ 
+ > Hint: JavaScript has an abbreviated way to say "if this is true, do this" when a ternary can't be used because there is no "else" value. In React, if you use it inside JSX, you use the same curly braces you do for other bits of JS:
+ > ```
+ > { booleanValue && doAThing }
+ > ```
+ > The `booleanValue` can be a single boolean variable or an expression as long as it evaluates to `true` or `false`. The second part, `doAThing`, can be a variable, function, or other command depending on the context. But essentially it just means that the second thing won't be taken into consideration unless the first thing evaluates to true.
+
+### B. Make the table and its subheader display conditionally. 
+They should display only after the first entry has been submitted through the form. 
+What value can you base your boolean expression on?
+> Hint: This can be accomplished the same way as the previous bonus mission, but instead of `doAThing` you would just put the HTML element or React component element!
+
+---
+
+## That's it! Great job!
+
+<p align="center"><img width="600" alt="Screen Shot 2021-08-02 at 7 33 45 PM" src="https://user-images.githubusercontent.com/55961845/128267509-deedba44-a505-475e-a4eb-2919f10b47f7.png"></p>
 
