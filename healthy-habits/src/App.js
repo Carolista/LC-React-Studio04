@@ -19,38 +19,64 @@ function App() {
         net: 0,
     });
 
-    // TODO: Inside each of the following handlers, update the numbers property from state.
+    // TODO: Inside each of the following handlers, update the corresponding numbers property from state.
     // Within the food and exercise handlers, you will need to update the net cal as well.
-    // Strategy: make a copy and use those values to update the object in state.
     const handleUpdateSteps = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            steps: amount,
+        // You have two options here: use prevState OR make a copy of the object using the spread operator and then use that copy to set the new values.
+        setNumbers(prevState => {
+            return {
+                ...prevState,
+                steps: amount,
+            }
         });
+        // let prevNumbers = { ...numbers };
+        // setNumbers({
+        //     ...prevNumbers,
+        //     steps: amount,
+        // });
     };
     const handleUpdateWater = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            water: amount,
+        setNumbers(prevState => {
+            return {
+                ...prevState,
+                water: amount,
+            }
         });
+        // let prevNumbers = { ...numbers };
+        // setNumbers({
+        //     ...prevNumbers,
+        //     water: amount,
+        // });
     };
     const handleUpdateFood = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            food: prevNumbers.food + amount,
-            net: prevNumbers.net + amount,
+        setNumbers(prevState => {
+            return {
+                ...prevState,
+                food: prevState.food + amount,
+                net: prevState.net + amount
+            }
         });
+        // let prevNumbers = { ...numbers };
+        // setNumbers({
+        //     ...prevNumbers,
+        //     food: prevNumbers.food + amount,
+        //     net: prevNumbers.net + amount,
+        // });
     };
     const handleUpdateExercise = (amount) => {
-        let prevNumbers = { ...numbers };
-        setNumbers({
-            ...prevNumbers,
-            exercise: prevNumbers.exercise + amount,
-            net: prevNumbers.net - amount,
+        setNumbers(prevState => {
+            return {
+                ...prevState,
+                exercise: prevState.exercise + amount,
+                net: prevState.net - amount
+            }
         });
+        // let prevNumbers = { ...numbers };
+        // setNumbers({
+        //     ...prevNumbers,
+        //     exercise: prevNumbers.exercise + amount,
+        //     net: prevNumbers.net - amount,
+        // });
     };
 
     const handleCurrTypeChange = (type) => {
