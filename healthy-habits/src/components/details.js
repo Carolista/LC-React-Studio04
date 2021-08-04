@@ -20,7 +20,8 @@ const Details = (props) => {
         let amount = Number(e.target.value);
         // TODO: set the new value in state
         
-        props.updateSteps(amount);
+        // TODO: call the update handler via props and pass in the amount
+        
     }
 
     // Water input handler
@@ -29,7 +30,8 @@ const Details = (props) => {
         let amount = Number(e.target.value);
         // TODO: set the new value in state
         
-        props.updateWater(amount);
+        // TODO: call the update handler via props and pass in the amount
+        
     }
 
     // Food input handlers
@@ -52,12 +54,11 @@ const Details = (props) => {
             // TODO: Add desc & cal properties with values from state
             
         }
-        // TODO: make a copy of the list held in state
+        // TODO: use prevState to add the new entry to the food list (once you've created it later)
         
-        // TODO: combine the copy of the list and the new entry and set as the new value of the list
+        // TODO: call the update handler via props and pass in the calories
         
-        props.updateFood(newFoodEntry.cal);
-        // TODO: reset the desc and cal input values to an empty string
+        // TODO: reset the food desc and cal input values to an empty string
         
     }
 
@@ -81,12 +82,11 @@ const Details = (props) => {
             // TODO: Add desc & cal properties with values from state
             
         }
-        // TODO: make a copy of the list held in state
+        // TODO: use prevState to add the new entry to the exercise list (once you've created it later)
         
-        // TODO: combine the copy of the list and the new entry and set as the new value of the list
+        // TODO: call the update handler via props and pass in the calories from newExerciseEntry
         
-        props.updateExercise(newExerciseEntry.cal);
-        // TODO: reset the desc and cal input values to an empty string
+        // TODO: reset the exercise desc and cal input values to an empty string
         
     }
 
@@ -130,7 +130,7 @@ const Details = (props) => {
                 <form id="water-form" onSubmit={(e) => e.preventDefault() }>
                     <p className="label">TOTAL GLASSES OF WATER</p>
                     {/* TODO: Add two-way binding for the input below */}
-                    <input type="number"  placeholder="Total" min="0" />           
+                    <input type="number" placeholder="Total" min="0" />           
                 </form>
                 <p className="list subheader">How much water should you drink each day?</p>
                 <p className="info">In general, you should drink between &frac12; - 1 ounce for every pound you weigh. That's 5-10 glasses per day for a 160-lb person.</p>
