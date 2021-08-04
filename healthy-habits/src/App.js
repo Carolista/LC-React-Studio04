@@ -15,11 +15,10 @@ function App() {
     // They should all start with a zero value.
 
 
-    // TODO: Inside each of the following handlers, update the numbers property from state.
+    // TODO: Inside each of the following handlers, update the corresponding numbers property from state.
     const handleUpdateSteps = (amount) => {
         // You have two options here: use prevState OR make a copy of the object using the spread operator and then use that copy to set the new values.
         
-
     };
     const handleUpdateWater = (amount) => {
         // Same
