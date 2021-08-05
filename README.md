@@ -14,7 +14,7 @@ You're going to finish an app that lets a user track their daily steps, water in
  - [ ] In your terminal, go to the folder where you want your project to be. Use `git clone` to create your local copy.
 
 ### B. Get the project ready to code.
- - [ ] Still in your terminal, navigate to `/LC-React-Studio04/healthy-habits` and use the command `npm install` to download any required dependencies.
+ - [ ] Still in your terminal, use `cd LC-React-Studio04/healthy-habits` to navigate to the React project and then use the command `npm install` to download any required dependencies. *Note: You won't be able to install the correct files or start the program unless you are in the `healthy-habits` directory.*
  - [ ] Now use the command `npm start` to serve the project to your browser. The page is *partially* there - but don't worry - as soon as you make a few of the first changes in Part 2, it will shape up quickly.
 
 <p align="center"><img width="600" alt="Screen Shot 2021-08-04 at 11 25 54 AM" src="https://user-images.githubusercontent.com/55961845/128218360-a376e9d8-f044-4685-87b9-65708e1f9867.png"></p>
@@ -143,6 +143,12 @@ In the `Details` component, both the food and exercise tabs have submission butt
 They should display only after the first entry has been submitted through the form. 
 What value can you base your boolean expression on?
 > Hint: This can be accomplished the same way as the previous bonus mission, but instead of `doAThing` you would just put the HTML element or React component element!
+
+### C. Just for fun - see some animation in action.
+You don't really have to code anything for this, but if you want to see some fun effects on the page, there's a branch for that. 
+ - [ ] Use `git checkout` to switch to the `solution-with-animation` branch. 
+ - [ ] If the app is no longer compiled, use `npm start` to serve it back up to `localhost:3000`.
+ - [ ] As you add food and exercise on the app, watch how the net calories in the middle fade out and back in.
 
 ---
 
