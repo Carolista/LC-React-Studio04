@@ -14,11 +14,11 @@ function App() {
 
     // TODO: Inside each of the following handlers, update the corresponding numbers property from state.
     const handleUpdateSteps = (amount) => {
-        // You can use your setter to update the state variable directly with the new amount.
+        // Use prevState to change just the steps property within the numbers object.
         
     };
     const handleUpdateWater = (amount) => {
-        // You can use your setter to update the state variable directly with the new amount.
+        // Use prevState to change just the water property within the numbers object.
 
     };
     const handleUpdateFood = (amount) => {
@@ -26,13 +26,13 @@ function App() {
 
     };
     const handleUpdateExercise = (amount) => {
-        // You'll need to update both the food calories and the net calories here (subtract calories burned). Use prevState to ensure you are adding the new amount to the existing total. 
+        // You'll need to update both the exercise calories and the net calories here (subtract calories burned). Use prevState to ensure you are adding the new amount to the existing total. 
 
     };
 
     // TODO: Change the current type of details to be displayed.
     const handleCurrTypeChange = (type) => {
-        // Use the setter from state.
+        // Use the setter you created with your state variable.
         
     };
 
@@ -85,7 +85,7 @@ function App() {
             </div>
             
             {/* TODO: Pass the current type into the Details component */}
-            {/* TODO: Pass the four update handler functions to the Details component below. Check the propTypes object at the bottom of Details.js to get the prop names, then look just below the state variables in this file to get the names of the handler functions. */}
+            {/* TODO: Pass the four handler functions to the Details component below. Check the propTypes object at the bottom of Details.js to see what the names of the attributes should be, then look just below the state variables at the top of this file for the names of the functions you are passing down. */}
             <Details />
             
         </div>

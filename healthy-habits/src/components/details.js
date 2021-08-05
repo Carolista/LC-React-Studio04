@@ -51,7 +51,7 @@ const Details = (props) => {
         e.preventDefault();
         let newFoodEntry = {
             id: uuid(),
-            // TODO: Add desc & cal properties with values from state
+            // TODO: Add desc & cal properties using values from state
             
         }
         // TODO: use prevState to add the new entry to the food list (once you've created it later)
@@ -79,7 +79,7 @@ const Details = (props) => {
         e.preventDefault();
         let newExerciseEntry = {
             id: uuid(),
-            // TODO: Add desc & cal properties with values from state
+            // TODO: Add desc & cal properties using values from state
             
         }
         // TODO: use prevState to add the new entry to the exercise list (once you've created it later)
