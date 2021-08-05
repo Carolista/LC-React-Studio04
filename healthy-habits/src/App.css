@@ -256,13 +256,13 @@ button:disabled {
 }
 
 .steps-table {
-    width: 240;
+    width: 320;
     margin: 0 auto;
 }
 
 .steps-cell-left {
     text-align: left;
-    width: 120px;
+    width: 200px;
     padding: 5px;
 }
 
