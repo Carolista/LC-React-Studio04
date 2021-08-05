@@ -5,12 +5,7 @@ import "./App.css";
 
 function App() {
 
-    // TODO: Create a state variable to track which tab should be displayed.
-    const [currType, setCurrType] = useState("net");
-
-    // TODO: Create a state variable to hold the five numbers to track.
-    // This should be an object with five properties: steps, water, food, exercise, and net.
-    // They should all start with a zero value.
+    // TODO: Use destructuring to create a state variable to hold the five numbers to track. This should be an object with five properties: steps, water, food, exercise, and net. They should each be initialized with with a zero value (as a number).  Notice the hook you need has been imported at the top.
     const [numbers, setNumbers] = useState({
         steps: 0,
         water: 0,
@@ -19,36 +14,30 @@ function App() {
         net: 0,
     });
 
+    // TODO: Use destructuring to create a state variable to track which tab should be displayed.
+    const [currType, setCurrType] = useState("net");
+
     // TODO: Inside each of the following handlers, update the corresponding numbers property from state.
-    // Within the food and exercise handlers, you will need to update the net cal as well.
     const handleUpdateSteps = (amount) => {
-        // You have two options here: use prevState OR make a copy of the object using the spread operator and then use that copy to set the new values.
+        // Use prevState to change just the steps property within the numbers object.
         setNumbers(prevState => {
             return {
                 ...prevState,
                 steps: amount,
             }
         });
-        // let prevNumbers = { ...numbers };
-        // setNumbers({
-        //     ...prevNumbers,
-        //     steps: amount,
-        // });
     };
     const handleUpdateWater = (amount) => {
+        // Use prevState to change just the water property within the numbers object.
         setNumbers(prevState => {
             return {
                 ...prevState,
                 water: amount,
             }
         });
-        // let prevNumbers = { ...numbers };
-        // setNumbers({
-        //     ...prevNumbers,
-        //     water: amount,
-        // });
     };
     const handleUpdateFood = (amount) => {
+        // You'll need to update both the food calories and the net calories here (add calories consumed). Use prevState to ensure you are adding the new amount to the existing total.
         setNumbers(prevState => {
             return {
                 ...prevState,
@@ -56,14 +45,9 @@ function App() {
                 net: prevState.net + amount
             }
         });
-        // let prevNumbers = { ...numbers };
-        // setNumbers({
-        //     ...prevNumbers,
-        //     food: prevNumbers.food + amount,
-        //     net: prevNumbers.net + amount,
-        // });
     };
     const handleUpdateExercise = (amount) => {
+        // You'll need to update both the exercise calories and the net calories here (subtract calories burned). Use prevState to ensure you are adding the new amount to the existing total. 
         setNumbers(prevState => {
             return {
                 ...prevState,
@@ -71,16 +55,11 @@ function App() {
                 net: prevState.net - amount
             }
         });
-        // let prevNumbers = { ...numbers };
-        // setNumbers({
-        //     ...prevNumbers,
-        //     exercise: prevNumbers.exercise + amount,
-        //     net: prevNumbers.net - amount,
-        // });
     };
 
+    // TODO: Change the current type of details to be displayed.
     const handleCurrTypeChange = (type) => {
-        // TODO: Use the setter to change the current type of details to be displayed
+        // TODO: Use the setter you created with your state variable.
         setCurrType(type);
     };
 
@@ -132,8 +111,8 @@ function App() {
                 </div>
             </div>
             
-            {/* TODO: Pass the current type into the Details component */}
-            {/* TODO: Pass the four handler functions to the Details component */}
+            {/* TODO: Pass the current type into the Details component. */}
+            {/* TODO: Pass the four handler functions to the Details component below. Check the propTypes object at the bottom of Details.js to see what the names of the attributes should be, then look just below the state variables at the top of this file for the names of the functions you are passing down. */}
             <Details
                 type={currType}
                 updateSteps={handleUpdateSteps}

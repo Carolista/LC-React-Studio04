@@ -5,7 +5,9 @@ import "../App.css";
 
 const Details = (props) => {
 
-    // TODO: Create state variables to hold values of form input fields
+    // TODO: Create state variables to hold values of form input fields.
+    // Initialize them as empty strings.
+    // Don't forget to import the hook you need.
     const [stepsInput, setStepsInput] = useState("");
     const [waterInput, setWaterInput] = useState("");
     const [foodCalInput, setFoodCalInput] = useState("");
@@ -14,6 +16,7 @@ const Details = (props) => {
     const [exerciseDescInput, setExerciseDescInput] = useState("");
 
     // TODO: Create state variables to hold full lists of food and exercise
+    // Initialize them as empty arrays.
     const [foodList, setFoodList] = useState([]);
     const [exerciseList, setExerciseList] = useState([]);
 
@@ -23,6 +26,7 @@ const Details = (props) => {
         let amount = Number(e.target.value);
         // TODO: set the new value in state
         setStepsInput(amount);
+        // TODO: call the update handler via props and pass in the amount
         props.updateSteps(amount);
     }
 
@@ -32,6 +36,7 @@ const Details = (props) => {
         let amount = Number(e.target.value);
         // TODO: set the new value in state
         setWaterInput(amount);
+        // TODO: call the update handler via props and pass in the amount
         props.updateWater(amount);
     }
 
@@ -52,16 +57,15 @@ const Details = (props) => {
         e.preventDefault();
         let newFoodEntry = {
             id: uuid(),
-            // TODO: Add desc & cal values from state
+            // TODO: Add desc & cal properties using values from state
             desc: foodDescInput,
             cal: foodCalInput,
         }
-        // TODO: make a copy of the list held in state
-        let prevFoodList = [...foodList];
-        // TODO: combine the copy of the list and the new entry and set as the new value of the list
-        setFoodList([...prevFoodList, newFoodEntry]);
-        props.updateFood(newFoodEntry.cal);
-        // TODO: reset the desc and cal input values to an empty string
+        // TODO: use prevState to add the new entry to the food list (once you've created it later)
+        setFoodList(prevState => [...prevState, newFoodEntry]);
+        // TODO: call the update handler via props and pass in the calories
+        props.updateFood(foodCalInput);
+        // TODO: reset the food desc and cal input values to an empty string
         setFoodDescInput("");
         setFoodCalInput("");
     }
@@ -83,15 +87,14 @@ const Details = (props) => {
         e.preventDefault();
         let newExerciseEntry = {
             id: uuid(),
-            // TODO: Add desc & cal values from state
+            // TODO: Add desc & cal properties using values from state
             desc: exerciseDescInput,
             cal: exerciseCalInput,
         }
-        // TODO: make a copy of the list held in state
-        let prevExerciseList = [...exerciseList];
-        // TODO: combine the copy of the list and the new entry and set as the new value of the list
-        setExerciseList([...prevExerciseList, newExerciseEntry]);
-        props.updateExercise(newExerciseEntry.cal);
+        // TODO: use prevState to add the new entry to the exercise list (once you've created it later)
+        setExerciseList(prevState => [...prevState, newExerciseEntry]);
+        // TODO: call the update handler via props and pass in the calories
+        props.updateExercise(exerciseCalInput);
         // TODO: reset the desc and cal input values to an empty string
         setExerciseDescInput("");
         setExerciseCalInput("");
